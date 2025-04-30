@@ -1,78 +1,82 @@
-import React from 'react';
-import { Alert, FlatList, View } from 'react-native';
+import React, { useContext } from "react";
+import { Alert, FlatList, View, Text } from "react-native";
 
-import users from '../data/users'  
-import { Button, Icon, ListItem } from 'react-native-elements';
+import users from "../data/users";
+import { Button, ListItem } from "react-native-elements";
+import { Icon } from "react-native-elements";
+import UsersContext from "../context/UsersContext";
 
-export default props => {
+export default (props) => {
+  const { state, dispatch } = useContext(UsersContext);
 
-    function confirmUserDeletion(user){
-        Alert.alert("Excluir Usuário", `Deseja excluir o usuário ${user.nome}?`, [
-            {
-                text: 'Sim',
-                onPress(){
-                    console.warn('Usuário excluído!' + user.id)
-                }
-            },
-            {
-                text: 'Não'
-            }
-        ])
-    }
+  function confirmUserDeletion(user) {
+    Alert.alert("Excluir Usuário", `Deseja excluir o usuário ${user.nome}?`, [
+      {
+        text: "Sim",
+        onPress() {
+          dispatch({
+            type: "deleteUser",
+            payload: user,
+          });
+        },
+      },
+      {
+        text: "Não",
+      },
+    ]);
+  }
 
-    function getActions(user){
-        return (
-            <>
-                <Button
-                    onPress={()=> props.navigation.navigate('UserForm', user)}
-                    icon={
-                    <Icon
-                        name="edit"
-                        type="font-awesome"
-                        size={25}
-                        color="#fff"
-                    />}
-                    type="clear"
-                />
-                <Button
-                    onPress={()=> confirmUserDeletion(user)}
-                    icon={
-                    <Icon
-                        name="delete"
-                        type="font-awesome"
-                        size={25}
-                        color="#fff"
-                    />}
-                    type="clear"
-                />
-            </>
-    )
-    }
+  function getUserItem({ item: user }) {
+    return (
+      <ListItem
+        key={user.id}
+        title={user.nome}
+        subtitle={user.email}
+        bottomDivider
+        containerStyle={{ backgroundColor: "#000" }}
+        onPress={() => props.navigation.navigate("UserForm", user)}
+      >
+        <ListItem.Content>
+          <ListItem.Title style={{ color: "#fff", fontSize: 18 }}>
+            {user.nome}
+          </ListItem.Title>
+          <ListItem.Subtitle style={{ color: "#fff" }}>
+            {user.email}{" "}
+          </ListItem.Subtitle>
+          <ListItem.Subtitle style={{ color: "#fff", fontWeight: "bold" }}>
+            {user.cargo}{" "}
+          </ListItem.Subtitle>
+        </ListItem.Content>
+        <Button
+          icon={<Icon name="edit" size={25} color="#fff" />}
+          onPress={() => props.navigation.navigate("UserForm", user)}
+          type="clear"
+        />
+        <Button
+          icon={<Icon name="delete" size={25} color="#fff" />}
+          onPress={() => confirmUserDeletion(user)}
+          type="clear"
+        />
+      </ListItem>
+    );
+  }
+  return (
+    <View style={styles.container}>
+      <FlatList
+        keyExtractor={(user) => user.id.toString()}
+        data={state.users}
+        renderItem={getUserItem}
+      />
+    </View>
+  );
+};
 
-
-
-    
-    function getUserItem({item: user}){
-        return (
-            <ListItem 
-                key={user.id}
-                title={user.nome}
-                subtitle={user.email}
-                bottomDivider
-                onPress={() => props.navigation.navigate('UserForm', user)}
-                rightElement={getActions(user)}
-                />
-        )
-    }
-    return( 
-        <View>
-            <FlatList
-                keyExtractor={user => user.id.toString()}
-                data={users}
-                renderItem={getUserItem}
-            />
-               
-            
-        </View>
-    )
-}
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: "#000000",
+  },
+  btn: {
+    zIndex: 999,
+  },
+};
