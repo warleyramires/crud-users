@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   form: {
     flex: 1,
     padding: 12,
-    backgroundColor: "#000000",
+    backgroundColor: "#124064",
     color: "#fff",
   },
   label: {

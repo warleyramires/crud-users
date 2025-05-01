@@ -72,7 +72,7 @@ export default (props) => {
               title: "Usuários",
               headerRight: () => (
                 <Button
-                  icon={<Icon name="add" size={35} color="#000" />}
+                  icon={<Icon name="add" size={35} color="#fff" />}
                   onPress={() => navigation.navigate("UserForm")}
                   type="clear"
                 />
@@ -88,7 +88,7 @@ export default (props) => {
               headerStyle: {
                 backgroundColor: "#ff6833",
               },
-              headerTintColor: "#000",
+              headerTintColor: "#fff",
             }}
           />
             <Stack.Screen
@@ -99,7 +99,7 @@ export default (props) => {
               headerStyle: {
                 backgroundColor: "#ff6833",
               },
-              headerTintColor: "#000",
+              headerTintColor: "#fff",
             }}
           />
         </Stack.Navigator>
@@ -116,7 +116,7 @@ const screenOptions = {
   headerStyle: {
     backgroundColor: "#ff6833",
   },
-  headerTintColor: "#000",
+  headerTintColor: "#fff",
   headerTitleStyle: {
     fontWeight: "bold",
   },

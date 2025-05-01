@@ -33,7 +33,7 @@ export default (props) => {
         title={user.nome}
         subtitle={user.email}
         bottomDivider
-        containerStyle={{ backgroundColor: "#000" }}
+        containerStyle={{ backgroundColor: "#124064" }}
         onPress={() => props.navigation.navigate("UserDetails", user)}
       >
         <ListItem.Content>
@@ -74,7 +74,7 @@ export default (props) => {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: "#000000",
+    backgroundColor: "#124064",
   },
   btn: {
     zIndex: 999,

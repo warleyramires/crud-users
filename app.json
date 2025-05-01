@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#000000"
+      "backgroundColor": "#124064"
     },
     "ios": {
       "supportsTablet": true
@@ -18,7 +18,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/splash-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#124064"
       },
       "package": "com.warleyramires.crudusuarios"
     },

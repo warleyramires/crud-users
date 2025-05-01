@@ -10,22 +10,22 @@ export default ({ route }) => {
     return (
       <View style={styles.container}>
         <View style={styles.row}>
-          <Icon name="person" color="orange" size={60} style={styles.icon} />
+          <Icon name="person" color="#ff6833" size={60} style={styles.icon} />
           <Text style={styles.text}>Nome: {user.nome}</Text>
         </View>
   
         <View style={styles.row}>
-          <Icon name="email" color="orange" size={60} style={styles.icon} />
+          <Icon name="email" color="#ff6833" size={60} style={styles.icon} />
           <Text style={styles.text}>Email: {user.email}</Text>
         </View>
   
         <View style={styles.row}>
-          <Icon name="lock" color="orange" size={60} style={styles.icon} />
+          <Icon name="lock" color="#ff6833" size={60} style={styles.icon} />
           <Text style={styles.text}>Senha: {user.senha}</Text>
         </View>
   
         <View style={styles.row}>
-          <Icon name="work" color="orange" size={60} style={styles.icon} />
+          <Icon name="work" color="#ff6833" size={60} style={styles.icon} />
           <Text style={styles.text}>Cargo: {user.cargo}</Text>
         </View>
       </View>
@@ -35,7 +35,7 @@ export default ({ route }) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "#000",
+      backgroundColor: "#124064",
       justifyContent: "flex-start",
       paddingHorizontal: 30,
     },
