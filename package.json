@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
+    "@hookform/resolvers": "^5.0.1",
     "@react-native-vector-icons/common": "^11.0.0",
     "@react-native-vector-icons/evil-icons": "^1.10.1",
     "@react-native-vector-icons/fontawesome6": "^6.7.1",
@@ -18,8 +19,10 @@
     "@rneui/base": "^4.0.0-rc.7",
     "@rneui/themed": "^4.0.0-rc.8",
     "expo": "~52.0.46",
+    "expo-splash-screen": "~0.29.24",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
+    "react-hook-form": "^7.56.1",
     "react-native": "0.76.9",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "^2.25.0",
@@ -27,7 +30,7 @@
     "react-native-screens": "~4.4.0",
     "react-native-svg": "15.8.0",
     "react-native-vector-icons": "^10.2.0",
-    "expo-splash-screen": "~0.29.24"
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
