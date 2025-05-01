@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { act, useContext, useEffect, useState } from "react";
 import { Text, TextInput, StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
 import UsersContext from "../context/UsersContext";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ActivityIndicator } from "react-native";
+
+
 
 const validationSchema = yup.object().shape({
   nome: yup.string().required("Nome é obrigatório"),
@@ -23,6 +26,8 @@ const validationSchema = yup.object().shape({
 export default ({ route, navigation }) => {
   const [user, setUser] = useState(route.params ? route.params : {});
   const { dispatch } = useContext(UsersContext);
+  const [loading, setLoading] = useState(false);
+  const [btnTexto, setBtnTexto] = useState("Cadastrar");
 
   const {
     control,
@@ -33,13 +38,28 @@ export default ({ route, navigation }) => {
     defaultValues: user,
   });
 
-  const onSubmit = (data) => {
-    dispatch({
-      type: user.id ? "updateUser" : "createUser",
-      payload: data,
-    });
-    navigation.goBack();
+  const onSubmit = async (data) => {
+    setLoading(true);
+    setBtnTexto("Salvando...");
+    
+    setTimeout(() => {
+      dispatch({
+        type: user.id ? "updateUser" : "createUser",
+        payload: data,
+      });
+      setLoading(false);
+      setBtnTexto("Cadastrar");
+      navigation.goBack();
+    }, 1500); 
   };
+
+
+  useEffect(() => {
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <View style={styles.form}>
@@ -114,7 +134,11 @@ export default ({ route, navigation }) => {
       />
       {errors.cargo && <Text style={styles.error}>{errors.cargo.message}</Text>}
 
-      <Button title="Salvar" onPress={handleSubmit(onSubmit)} />
+      {loading ? (
+  <ActivityIndicator size="large" color="#fff" style={styles.activityIndicator} />
+) : (
+  <Button titleStyle={styles.btnTitle} buttonStyle={styles.btn} style={styles.btn} title={btnTexto} onPress={handleSubmit(onSubmit)} />
+)}
     </View>
   );
 };
@@ -142,5 +166,24 @@ const styles = StyleSheet.create({
   error: {
     color: "red",
     fontSize: 14,
+  },
+  btn: {
+    backgroundColor: "#ff6833",
+    borderRadius: 5,
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    marginTop: 10,
+  },
+  btnTitle: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  
+  activityIndicator: {
+    backgroundColor: "#ff6833",
+    borderRadius: 5,
+    padding: 10,
+    marginTop: 10,
   },
 });

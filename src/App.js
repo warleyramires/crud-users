@@ -14,7 +14,9 @@ import UserDetails from "./views/UserDetails";
 import { Button } from "react-native-elements";
 import { Icon } from "react-native-elements";
 import { UsersProvider } from "./context/UsersContext";
+import { LogBox } from 'react-native';
 
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
