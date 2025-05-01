@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Alert, FlatList, View, Text } from "react-native";
 
 import users from "../data/users";
-import { Button, ListItem } from "react-native-elements";
-import { Icon } from "react-native-elements";
+import { Button, ListItem } from "@rneui/themed"
+import { Icon } from "@rneui/themed";
 import UsersContext from "../context/UsersContext";
 
 export default (props) => {

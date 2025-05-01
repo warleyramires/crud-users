@@ -11,8 +11,8 @@ import * as Font from 'expo-font';
 import UserList from "./views/UserList";
 import UserForm from "./views/UserForm";
 import UserDetails from "./views/UserDetails";
-import { Button } from "react-native-elements";
-import { Icon } from "react-native-elements";
+import { Button } from "@rneui/themed";
+import { Icon } from "@rneui/themed";
 import { UsersProvider } from "./context/UsersContext";
 import { LogBox } from 'react-native';
 

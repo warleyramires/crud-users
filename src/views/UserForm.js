@@ -1,6 +1,6 @@
 import React, { act, useContext, useEffect, useState } from "react";
 import { Text, TextInput, StyleSheet, View } from "react-native";
-import { Button } from "react-native-elements";
+import { Button } from "@rneui/themed";
 import UsersContext from "../context/UsersContext";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";

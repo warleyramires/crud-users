@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import UsersContext from "../context/UsersContext";
-import { Icon } from "react-native-elements";
+import { Icon } from "@rneui/themed";
 
 export default ({ route }) => {
     const [user] = useState(route.params ? route.params : {});
