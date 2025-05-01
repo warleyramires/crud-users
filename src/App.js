@@ -10,9 +10,11 @@ import * as Font from 'expo-font';
 
 import UserList from "./views/UserList";
 import UserForm from "./views/UserForm";
+import UserDetails from "./views/UserDetails";
 import { Button } from "react-native-elements";
 import { Icon } from "react-native-elements";
 import { UsersProvider } from "./context/UsersContext";
+
 
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
@@ -81,6 +83,17 @@ export default (props) => {
             component={UserForm}
             options={{
               title: "Formulário",
+              headerStyle: {
+                backgroundColor: "#ff6833",
+              },
+              headerTintColor: "#000",
+            }}
+          />
+            <Stack.Screen
+            name="UserDetails"
+            component={UserDetails}
+            options={{
+              title: "Detalhes do Usuário",
               headerStyle: {
                 backgroundColor: "#ff6833",
               },

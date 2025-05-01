@@ -34,7 +34,7 @@ export default (props) => {
         subtitle={user.email}
         bottomDivider
         containerStyle={{ backgroundColor: "#000" }}
-        onPress={() => props.navigation.navigate("UserForm", user)}
+        onPress={() => props.navigation.navigate("UserDetails", user)}
       >
         <ListItem.Content>
           <ListItem.Title style={{ color: "#fff", fontSize: 18 }}>
